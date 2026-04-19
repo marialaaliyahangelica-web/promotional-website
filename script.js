@@ -2,14 +2,28 @@ const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
 const navLinks = navMenu.querySelectorAll("a");
 
-menuToggle.addEventListener("click", () => {
+menuToggle.addEventListener("click", (e) => {
+  e.stopPropagation();
   navMenu.classList.toggle("active");
+});
+
+navMenu.addEventListener("click", (e) => {
+  e.stopPropagation();
 });
 
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     navMenu.classList.remove("active");
   });
+});
+
+document.addEventListener("click", (e) => {
+  const clickedOutsideMenu = !navMenu.contains(e.target);
+  const clickedOutsideButton = !menuToggle.contains(e.target);
+
+  if (navMenu.classList.contains("active") && clickedOutsideMenu && clickedOutsideButton) {
+    navMenu.classList.remove("active");
+  }
 });
 
 // HERO PHONE CAROUSEL
@@ -72,5 +86,7 @@ function resetAutoSlide() {
   startAutoSlide();
 }
 
-showSlide(0);
-startAutoSlide();
+if (slides.length > 0 && dots.length > 0) {
+  showSlide(0);
+  startAutoSlide();
+}
