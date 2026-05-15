@@ -952,3 +952,78 @@ button {
   }
 }
 }
+
+.store-buttons {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  width: fit-content;
+  min-width: 320px;
+  max-width: 100%;
+  padding: 18px 28px;
+  background: #fff;
+  color: #7c2dff;
+  border-radius: 999px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.store-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.16);
+}
+
+.store-btn i {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.store-btn span {
+  display: flex;
+  flex-direction: column;
+}
+
+.store-btn small {
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.store-btn strong {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+@media (max-width: 640px) {
+  .store-buttons {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .store-btn {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 16px 20px;
+  }
+
+  .store-btn i {
+    font-size: 1.4rem;
+  }
+
+  .store-btn small {
+    font-size: 0.78rem;
+  }
+
+  .store-btn strong {
+    font-size: 0.98rem;
+    line-height: 1.2;
+  }
+}
